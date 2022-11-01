@@ -1,0 +1,636 @@
+fileFormatVersion: 2
+guid: 80f088c3bfd01954b8a42afe5793737d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 361
+        width: 40
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826575613bb7eef4c85118781c0a9ae1
+      internalID: -540784746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 362
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1c5911b233f5447acd2533c7992507
+      internalID: -531619822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 362
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5134b2058917d84f9a6a6266f102e04
+      internalID: 1513031553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 362
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b65e35e7462ed6c4dbe59589a9243178
+      internalID: -211977200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 362
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e1b3b29a7ef42469e45912433fe03c
+      internalID: -1284992689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 5
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 329
+        width: 41
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa5d4dab7f84f884ab48c7f18f76e527
+      internalID: -416188649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 6
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 328
+        width: 37
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa26e2d3b79cbb9479b08689268c6955
+      internalID: 1270856328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 330
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b49b34da9d20c4f944acc5cdad5b53
+      internalID: 1269766784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 333
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923a952ae0d8fa943be34e1e9dc508d1
+      internalID: 1147627045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 295
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fefc643b6ba5a4e42bda7e89f56348b8
+      internalID: -1755432424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 295
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba74740c970fbb54b88585d992d6a932
+      internalID: -130299272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 295
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce39a2e9fffd9ec41a7d588927db93d4
+      internalID: 22573116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 14
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 295
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf279a7aba2d31478b7cbea9e23b731
+      internalID: 1200938393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 296
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60be106aecc8efe45b387bac339879fc
+      internalID: 979693058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 328
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af4e8d3bd2ce764182cfe540af02d11
+      internalID: -13605235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 296
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e06126df572454f8101bc2f458eee4
+      internalID: -1794155280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 11
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 295
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c7ac3644b6d2b4d82aee33f30673d3
+      internalID: 400892537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_73: 706866335
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_69: -538761753
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_9: -938056319
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_116: 880889272
+      0: -540784746
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_96: -1997019130
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_108: 803585613
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_113: 179740317
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_4: -1741101546
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_63: 1201757607
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_110: -275057714
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_24: 119064830
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_81: -1768438436
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_29: 1512551302
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_112: -852056402
+      12: -130299272
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_84: -1989503983
+      6: 1270856328
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_15: -1903701060
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_33: 1605223794
+      5: -416188649
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_23: 1692009520
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_109: -2102859522
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_55: -648629655
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_6: 151621876
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_83: -1484578055
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_31: -1581075138
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_12: 1190188800
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_21: 1668197764
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_117: 1232862118
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_82: -97686499
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_89: 1804662577
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_100: -1937300158
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_34: -2079769094
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_44: -1762608476
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_53: 374480067
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_47: -2141255868
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_32: 1005807650
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_56: -1571784738
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_20: 790353046
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_86: 1119411475
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_71: -1774130992
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_99: -840514337
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_27: 8438816
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_13: -618259793
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_25: -457140631
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_92: -1612764767
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_111: 1109204726
+      4: -1284992689
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_18: -2023876392
+      9: 1147627045
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_80: 1293311873
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_54: -1158750152
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_106: -1211529228
+      14: 1200938393
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_26: -1372062705
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_88: -1199413021
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_16: -1861535280
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_91: 1444638928
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_105: -166451214
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_62: 1914308105
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_79: 467254891
+      16: 979693058
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_72: 2052424057
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_120: 207523353
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_5: 889306250
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_57: 132308065
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_46: 1696891720
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_7: -1539415423
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_95: -727693236
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_10: 1525901241
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_97: -1484578201
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_30: -2083431618
+      3: -211977200
+      15: -1794155280
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_114: 1112280531
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_14: 504598328
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_38: 77296203
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_74: -1455606322
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_11: -211631475
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_103: -83511931
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_94: 1874784758
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_107: -1956887288
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_8: 41663988
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_70: 1235780964
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_77: 185296806
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_104: 411367443
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_118: -1552955734
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_17: -1031500962
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_37: 1891289003
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_75: -1288827485
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_115: -2052231516
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_45: -19367823
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_102: -522277999
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_36: -29255814
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_28: 869388091
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_43: 263126161
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_98: 639247318
+      8: 1269766784
+      11: 400892537
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_78: -877233613
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_76: 1157166193
+      2: 1513031553
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_35: 648656851
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_119: 1846147448
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_40: -1995107247
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_19: -1533720363
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_3: 1081761273
+      13: 22573116
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_22: -2083218230
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_39: -479271652
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_85: -570507265
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_87: 1181138217
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_41: 533692643
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_93: 267243688
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_90: 534915046
+      7: -13605235
+      1: -531619822
+      10: -1755432424
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_42: -1384386496
+      Custom_Edited_-_Mega_Man_Zero_Customs_-_Zero_Mega_Man_NES-Style-removebg-preview_101: -1378135259
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
