@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderingMode: 2
   editorView:
-    sceneViewLayer: 9
-    gameViewLayer: 8
+    sceneViewLayer: 8
+    gameViewLayer: 7
   gizmos:
     drawGizmos: 1
     drawGizmosBounds: 0
