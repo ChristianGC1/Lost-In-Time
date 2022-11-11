@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public enum PlayerState
 {
@@ -39,7 +40,7 @@ public class HeroControl : MonoBehaviour
     {
         MoveCharacter();
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (dialogueUI.isOpen) return;
@@ -69,6 +70,26 @@ public class HeroControl : MonoBehaviour
         currentState = PlayerState.attack;
         yield return null;
         anim.SetBool("IsAttacking", false);
+        yield return new WaitForSeconds(.3f);
+        currentState = PlayerState.walk;
+    }
+
+    private IEnumerator AttackCoTwo()
+    {
+        anim.SetBool("IsAttackingTwo", true);
+        currentState = PlayerState.attack;
+        yield return null;
+        anim.SetBool("IsAttackingTwo", false);
+        yield return new WaitForSeconds(.3f);
+        currentState = PlayerState.walk;
+    }
+
+    private IEnumerator AttackCoThree()
+    {
+        anim.SetBool("IsAttackingThree", true);
+        currentState = PlayerState.attack;
+        yield return null;
+        anim.SetBool("IsAttackingThree", false);
         yield return new WaitForSeconds(.3f);
         currentState = PlayerState.walk;
     }
