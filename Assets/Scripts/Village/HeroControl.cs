@@ -23,9 +23,6 @@ public class HeroControl : MonoBehaviour
     public bool attackTwo;
     public bool attackThree;
 
-    
-   
-
     public PlayerState currentState;
     public float speed;
     private Rigidbody2D rb;
@@ -67,12 +64,6 @@ public class HeroControl : MonoBehaviour
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
 
-
-
-        
-
-
-
         if (Input.GetButtonDown("Fire1") && currentState != PlayerState.attack
            && currentState != PlayerState.stagger)
         {
@@ -82,9 +73,6 @@ public class HeroControl : MonoBehaviour
 
             StartCoroutine(AttackCo());
            
-            
-           
-
             if(attackTimer == 0f)
             {
                 Debug.Log("Attack Timer ended in attack one!");
@@ -97,10 +85,8 @@ public class HeroControl : MonoBehaviour
             Debug.Log("Attack Two Happened!");
             attackTimer = .75f;
             attackTwo = true;
-            attackOne = false;
             StartCoroutine(AttackCoTwo());
-            
-           
+            attackOne = false;
 
             if (attackTimer <= 0f)
             {
@@ -112,13 +98,8 @@ public class HeroControl : MonoBehaviour
             && currentState != PlayerState.stagger && attackTimer > 0 && attackTwo == true)
         {
             Debug.Log("Attack Three Happened!");
-            attackTimer = .75f;
-            attackThree = true;
-            attackTwo = false;
             StartCoroutine(AttackCoThree());
-           
-           
-            
+            attackTwo = false;
 
             if (attackTimer <= 0f)
             {
@@ -130,9 +111,12 @@ public class HeroControl : MonoBehaviour
         if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
             UpdateAnimationAndMove();
-            attackOne = false;
-            attackTwo = false;
-            attackThree = false;
+            if (attackTimer <= 0)
+            {
+                //attackOne = false;
+                //attackTwo = false;
+                //attackThree = false;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -147,39 +131,33 @@ public class HeroControl : MonoBehaviour
         anim.SetBool("IsAttacking", true);
         currentState = PlayerState.attack;
         yield return null;
-       
-            anim.SetBool("IsAttacking", false);
-            yield return new WaitForSeconds(0.5f);
-            currentState = PlayerState.walk;
-        
-       
+
+        anim.SetBool("IsAttacking", false);
+        yield return new WaitForSeconds(0.5f);
+        currentState = PlayerState.walk;
     }
 
     private IEnumerator AttackCoTwo()
     {
-      
         anim.SetBool("IsAttackingTwo", true);
         currentState = PlayerState.attack;
         yield return null;
        
-            anim.SetBool("IsAttackingTwo", false);
-            yield return new WaitForSeconds(0.5f);
-            currentState = PlayerState.walk;
-       
+        anim.SetBool("IsAttackingTwo", false);
+        yield return new WaitForSeconds(0.5f);
+        currentState = PlayerState.walk;
         
     }
 
     private IEnumerator AttackCoThree()
     {
-      
-
         anim.SetBool("IsAttackingThree", true);
         currentState = PlayerState.attack;
         yield return null;
         
-            anim.SetBool("IsAttackingThree", false);
-            yield return new WaitForSeconds(0.5f);
-            currentState = PlayerState.walk;
+        anim.SetBool("IsAttackingThree", false);
+        yield return new WaitForSeconds(0.5f);
+        currentState = PlayerState.walk;
         attackTimer = 0f;
        
     }
