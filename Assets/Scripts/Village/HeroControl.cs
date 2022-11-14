@@ -18,6 +18,11 @@ public class HeroControl : MonoBehaviour
     public DialogueUI DialogueUI => dialogueUI;
     public IInteractable Interactable { get; set; }
 
+    public float attackTimer;
+    public bool attackOne;
+    public bool attackTwo;
+    public bool attackThree;
+
     public PlayerState currentState;
     public float speed;
     private Rigidbody2D rb;
@@ -45,17 +50,68 @@ public class HeroControl : MonoBehaviour
     {
         if (dialogueUI.isOpen) return;
 
+        if(attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
+        }
+        else if(attackTimer <= 0)
+        {
+            attackTimer = 0;
+        }
+
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
 
         if (Input.GetButtonDown("Fire1") && currentState != PlayerState.attack
            && currentState != PlayerState.stagger)
         {
+            Debug.Log("Attack One Happened!");
             StartCoroutine(AttackCo());
+            attackOne = true;
+            attackTimer = 0.75f;
+
+            if(attackTimer <= 0)
+            {
+                Debug.Log("Attack Timer ended in attack one!");
+                attackOne = false;
+            }
         }
-        else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
+        else if (Input.GetButtonDown("Fire1") && currentState == PlayerState.attack
+           && currentState != PlayerState.stagger && attackTimer > 0 && attackOne == true)
+        {
+            Debug.Log("Attack Two Happened!");
+            StartCoroutine(AttackCoTwo());
+            attackTwo = true;
+            attackOne = false;
+            attackTimer = 0.75f;
+
+            if (attackTimer <= 0)
+            {
+                Debug.Log("Attack Timer ended in attack two!");
+                attackTwo = false;
+            }
+        }
+        else if (Input.GetButtonDown("Fire1") && currentState == PlayerState.attack 
+            && currentState != PlayerState.stagger && attackTimer > 0 && attackTwo == true)
+        {
+            Debug.Log("Attack Three Happened!");
+            StartCoroutine(AttackCoThree());
+            attackThree = true;
+            attackTwo = false;
+            attackTimer = 0.75f;
+
+            if (attackTimer <= 0)
+            {
+                Debug.Log("Attack Timer ended in attack Three!");
+                attackThree = false;
+            }
+        }
+        if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
             UpdateAnimationAndMove();
+            attackOne = false;
+            attackTwo = false;
+            attackThree = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
