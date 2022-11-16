@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using System.Runtime.CompilerServices;
 
 public enum PlayerState
 {
@@ -19,6 +20,7 @@ public class HeroControl : MonoBehaviour
     public IInteractable Interactable { get; set; }
 
     public float attackTimer;
+    public float comboBufferTimer = .75f;
     public bool attackOne;
     public bool attackTwo;
     public bool attackThree;
@@ -38,8 +40,6 @@ public class HeroControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim.SetFloat("X", 0);
         anim.SetFloat("Y", -1);
-       
-
     }
 
     private void FixedUpdate()
@@ -58,65 +58,43 @@ public class HeroControl : MonoBehaviour
         }
         else if(attackTimer <= 0.0f)
         {
-            attackTimer = 0.0f;
+            ResetTimer();
         }
 
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetButtonDown("Fire1") && currentState != PlayerState.attack
-           && currentState != PlayerState.stagger)
+        if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("Attack One Happened!");
-            attackOne = true;
-            attackTimer = .75f;
-
-            StartCoroutine(AttackCo());
-           
-            if(attackTimer == 0f)
+            if (currentState != PlayerState.attack && currentState != PlayerState.stagger)
             {
-                Debug.Log("Attack Timer ended in attack one!");
-                attackOne = false;
+                Debug.Log("Attack One Happened!");
+                attackOne = true;
+                attackTimer = comboBufferTimer;
+
+                StartCoroutine(AttackCo());
             }
-        }
-        else if (Input.GetButtonDown("Fire1") && currentState == PlayerState.attack
-           && currentState != PlayerState.stagger && attackTimer > 0 && attackOne == true)
-        {
-            Debug.Log("Attack Two Happened!");
-            attackTimer = .75f;
-            attackTwo = true;
-            StartCoroutine(AttackCoTwo());
-            attackOne = false;
-
-            if (attackTimer <= 0f)
+            else if (currentState == PlayerState.attack && currentState != PlayerState.stagger && attackTimer > 0 && attackOne == true)
             {
-                Debug.Log("Attack Timer ended in attack two!");
+                Debug.Log("Attack Two Happened!");
+                attackTimer = comboBufferTimer;
+                attackTwo = true;
+                StartCoroutine(AttackCoTwo());
+                attackOne = false;
+
+            }
+            else if (currentState == PlayerState.attack && currentState != PlayerState.stagger && attackTimer > 0 && attackTwo == true)
+            {
+                Debug.Log("Attack Three Happened!");
+                StartCoroutine(AttackCoThree());
                 attackTwo = false;
             }
         }
-        else if (Input.GetButtonDown("Fire1") && currentState == PlayerState.attack 
-            && currentState != PlayerState.stagger && attackTimer > 0 && attackTwo == true)
-        {
-            Debug.Log("Attack Three Happened!");
-            StartCoroutine(AttackCoThree());
-            attackTwo = false;
 
-            if (attackTimer <= 0f)
-            {
-                Debug.Log("Attack Timer ended in attack Three!");
 
-                attackThree = false;
-            }
-        }
         if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
             UpdateAnimationAndMove();
-            if (attackTimer <= 0)
-            {
-                //attackOne = false;
-                //attackTwo = false;
-                //attackThree = false;
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -132,9 +110,9 @@ public class HeroControl : MonoBehaviour
         currentState = PlayerState.attack;
         yield return null;
 
-        anim.SetBool("IsAttacking", false);
-        yield return new WaitForSeconds(0.5f);
-        currentState = PlayerState.walk;
+        //anim.SetBool("IsAttacking", false);
+        //yield return new WaitForSeconds(comboBufferTimer);
+        //currentState = PlayerState.walk;
     }
 
     private IEnumerator AttackCoTwo()
@@ -143,9 +121,9 @@ public class HeroControl : MonoBehaviour
         currentState = PlayerState.attack;
         yield return null;
        
-        anim.SetBool("IsAttackingTwo", false);
-        yield return new WaitForSeconds(0.5f);
-        currentState = PlayerState.walk;
+        //anim.SetBool("IsAttackingTwo", false);
+        //yield return new WaitForSeconds(0.5f);
+        //currentState = PlayerState.walk;
         
     }
 
@@ -155,10 +133,10 @@ public class HeroControl : MonoBehaviour
         currentState = PlayerState.attack;
         yield return null;
         
-        anim.SetBool("IsAttackingThree", false);
-        yield return new WaitForSeconds(0.5f);
-        currentState = PlayerState.walk;
-        attackTimer = 0f;
+        //anim.SetBool("IsAttackingThree", false);
+        //yield return new WaitForSeconds(0.5f);
+        //currentState = PlayerState.walk;
+        //attackTimer = 0f;
        
     }
 
@@ -197,5 +175,31 @@ public class HeroControl : MonoBehaviour
             rb.velocity = Vector2.zero;
             currentState = PlayerState.idle;
         }
+    }
+
+    private void ResetTimer()
+    {
+        attackTimer = 0.0f;
+        if (attackOne == true)
+        {
+            Debug.Log("Exiting Attack One!");
+        }
+        else if (attackTwo == true)
+        {
+            Debug.Log("Exiting Attack Two!");
+        }
+        else if (attackThree == true)
+        {
+            Debug.Log("Exiting Attack Three!");
+        }
+        attackOne = false;
+        attackTwo = false;
+        attackThree = false;
+
+        anim.SetBool("IsAttacking", false);
+        anim.SetBool("IsAttackingTwo", false);
+        anim.SetBool("IsAttackingThree", false);
+
+        currentState = PlayerState.walk;
     }
 }
