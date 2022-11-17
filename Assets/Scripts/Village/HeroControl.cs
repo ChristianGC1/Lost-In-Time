@@ -15,24 +15,32 @@ public enum PlayerState
 
 public class HeroControl : MonoBehaviour
 {
+    public PlayerState currentState;
+
+    [Header("Dialogue System")]
     [SerializeField] DialogueUI dialogueUI;
     public DialogueUI DialogueUI => dialogueUI;
     public IInteractable Interactable { get; set; }
 
+    [Header("Attack Movement")]
+    [SerializeField] private float strength = 16;
+    [SerializeField] private float delay = 0.15f;
+
+    [Header("Attack Combo")]
     public float attackTimer;
     public float comboBufferTimer = .75f;
     public bool attackOne;
     public bool attackTwo;
     public bool attackThree;
 
-    public PlayerState currentState;
+    [Header("Player Movement")]
     public float speed;
-    private Rigidbody2D rb;
     private Vector3 change;
+
+    [Header("Player Components")]
+    private Rigidbody2D rb;
     private Animator anim;
 
-
-    // Use this for initialization
     void Start()
     {
         currentState = PlayerState.walk;
@@ -40,6 +48,11 @@ public class HeroControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim.SetFloat("X", 0);
         anim.SetFloat("Y", -1);
+
+
+        //Set Cursor to not be visible
+        Cursor.visible = false;
+
     }
 
     private void FixedUpdate()
@@ -68,6 +81,7 @@ public class HeroControl : MonoBehaviour
         {
             if (currentState != PlayerState.attack && currentState != PlayerState.stagger)
             {
+                //ForwardAttack();
                 Debug.Log("Attack One Happened!");
                 attackOne = true;
                 attackTimer = comboBufferTimer;
@@ -105,14 +119,13 @@ public class HeroControl : MonoBehaviour
 
     private IEnumerator AttackCo()
     {
-      
         anim.SetBool("IsAttacking", true);
         currentState = PlayerState.attack;
         yield return null;
 
-        //anim.SetBool("IsAttacking", false);
-        //yield return new WaitForSeconds(comboBufferTimer);
-        //currentState = PlayerState.walk;
+        anim.SetBool("IsAttacking", false);
+        yield return new WaitForSeconds(0.5f);
+        currentState = PlayerState.walk;
     }
 
     private IEnumerator AttackCoTwo()
@@ -120,11 +133,11 @@ public class HeroControl : MonoBehaviour
         anim.SetBool("IsAttackingTwo", true);
         currentState = PlayerState.attack;
         yield return null;
-       
-        //anim.SetBool("IsAttackingTwo", false);
-        //yield return new WaitForSeconds(0.5f);
-        //currentState = PlayerState.walk;
-        
+
+        anim.SetBool("IsAttackingTwo", false);
+        yield return new WaitForSeconds(0.5f);
+        currentState = PlayerState.walk;
+
     }
 
     private IEnumerator AttackCoThree()
@@ -132,12 +145,11 @@ public class HeroControl : MonoBehaviour
         anim.SetBool("IsAttackingThree", true);
         currentState = PlayerState.attack;
         yield return null;
-        
-        //anim.SetBool("IsAttackingThree", false);
-        //yield return new WaitForSeconds(0.5f);
-        //currentState = PlayerState.walk;
-        //attackTimer = 0f;
-       
+
+        anim.SetBool("IsAttackingThree", false);
+        yield return new WaitForSeconds(0.5f);
+        currentState = PlayerState.walk;
+
     }
 
     void UpdateAnimationAndMove()
@@ -202,4 +214,12 @@ public class HeroControl : MonoBehaviour
 
         currentState = PlayerState.walk;
     }
+
+    // Forward Push for Attacks needs work
+    //public void ForwardAttack()
+    //{
+    //    Vector2 direction = (transform.position * strength * Time.deltaTime).normalized;
+
+    //    rb.AddForce(direction * strength, ForceMode2D.Impulse);
+    //}
 }
