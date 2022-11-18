@@ -22,9 +22,9 @@ public class HeroControl : MonoBehaviour
     public DialogueUI DialogueUI => dialogueUI;
     public IInteractable Interactable { get; set; }
 
-    [Header("Attack Movement")]
-    [SerializeField] private float strength = 16;
-    [SerializeField] private float delay = 0.15f;
+    [Header("Attack Push")]
+    //[SerializeField] private float strength = 16;
+    //[SerializeField] private float delay = 0.15f;
 
     [Header("Attack Combo")]
     public float attackTimer;
@@ -46,9 +46,8 @@ public class HeroControl : MonoBehaviour
         currentState = PlayerState.walk;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        anim.SetFloat("X", 0);
-        anim.SetFloat("Y", -1);
-
+        //anim.SetFloat("X", 0);
+        //anim.SetFloat("Y", -1);
 
         //Set Cursor to not be visible
         Cursor.visible = false;
@@ -62,7 +61,6 @@ public class HeroControl : MonoBehaviour
 
     void Update()
     {
-
         if (dialogueUI.isOpen) return;
 
         if(attackTimer > 0.0f)
