@@ -122,7 +122,6 @@ public class SamuraiMovement : MonoBehaviour
         {
             if (currentState != _PlayerState.attack && currentState != _PlayerState.stagger)
             {
-                //ForwardAttack();
                 Debug.Log("Attack One Happened!");
                 attackOne = true;
                 attackTimer = comboBufferTimer;
@@ -145,14 +144,6 @@ public class SamuraiMovement : MonoBehaviour
                 attackTwo = false;
             }
         }
-
-
-
-
-
-
-
-
 
     }
 
@@ -186,10 +177,8 @@ public class SamuraiMovement : MonoBehaviour
 
         if (isAttackButtonDown)
         {
-            float dashAmount = 0.25f;
+            float dashAmount = 0.1f;
             Vector3 dashPosition = transform.position + moveDir * dashAmount;
-
-            //this.GetComponent<BoxCollider2D>().enabled = false;
 
 
             RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, moveDir, dashAmount);
@@ -202,7 +191,6 @@ public class SamuraiMovement : MonoBehaviour
 
             _rigidbody2D.MovePosition(transform.position + moveDir * dashAmount);
             isAttackButtonDown = false;
-            //this.GetComponent<BoxCollider2D>().enabled = true;
         }
 
     }
