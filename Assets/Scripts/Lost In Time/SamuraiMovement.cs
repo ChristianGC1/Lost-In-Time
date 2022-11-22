@@ -273,5 +273,13 @@ public class SamuraiMovement : MonoBehaviour
         currentState = _PlayerState.walk;
     }
 
+    public void PlayDeathAnimation()
+    {
+        _anim.SetBool("PlayerDeath", true);
+    }
+    public void PlayStaggerAnimation()
+    {
+        _anim.SetBool("PlayerDeath", true);
+    }
 
 }
