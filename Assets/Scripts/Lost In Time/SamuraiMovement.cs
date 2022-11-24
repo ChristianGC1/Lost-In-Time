@@ -31,6 +31,8 @@ public class SamuraiMovement : MonoBehaviour
     public Animator _anim;
 
     private bool isDashButtonDown;
+    [SerializeField]
+    private float dashPower = 20f;
 
     private bool isAttackButtonDown;
 
@@ -156,20 +158,22 @@ public class SamuraiMovement : MonoBehaviour
         if (isDashButtonDown)
         {
             float dashAmount = 1f;
-            Vector3 dashPosition = transform.position + moveDir * dashAmount;
+            Vector3 dashPosition = transform.position + moveDir * dashPower;
 
             this.GetComponent<BoxCollider2D>().enabled = false;
 
 
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, moveDir, dashAmount);
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, moveDir, dashPower);
             if(raycastHit2D.collider != null)
             {
                 dashPosition = raycastHit2D.point;
             }
-            
-            
-            
-            _rigidbody2D.MovePosition(transform.position + moveDir * dashAmount);
+
+
+
+            //_rigidbody2D.MovePosition(transform.position + moveDir * dashAmount);
+            _rigidbody2D.AddForce(moveDir * dashPower * 100, ForceMode2D.Force);
+
             isDashButtonDown = false;
             this.GetComponent<BoxCollider2D>().enabled = true;
         }
@@ -177,7 +181,7 @@ public class SamuraiMovement : MonoBehaviour
 
         if (isAttackButtonDown)
         {
-            float dashAmount = 0.1f;
+            float dashAmount = 0.25f;
             Vector3 dashPosition = transform.position + moveDir * dashAmount;
 
 

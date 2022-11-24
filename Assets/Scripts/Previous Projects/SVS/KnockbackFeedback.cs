@@ -13,6 +13,10 @@ public class KnockbackFeedback : MonoBehaviour
 
     public UnityEvent OnBegin, OnDone;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     public void PlayFeedback(GameObject sender)
     {
         StopAllCoroutines();
