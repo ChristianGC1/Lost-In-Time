@@ -60,7 +60,7 @@ public class SamuraiMovement : MonoBehaviour
     {
         currentState = _PlayerState.idle;
 
-        //Cursor.visible = false;
+        Cursor.visible = false;
 
     }
 
@@ -157,7 +157,7 @@ public class SamuraiMovement : MonoBehaviour
 
         if (isDashButtonDown)
         {
-            float dashAmount = 1f;
+            //float dashAmount = 1f;
             Vector3 dashPosition = transform.position + moveDir * dashPower;
 
             this.GetComponent<BoxCollider2D>().enabled = false;
@@ -181,7 +181,7 @@ public class SamuraiMovement : MonoBehaviour
 
         if (isAttackButtonDown)
         {
-            float dashAmount = 0.25f;
+            float dashAmount = 0.15f;
             Vector3 dashPosition = transform.position + moveDir * dashAmount;
 
 

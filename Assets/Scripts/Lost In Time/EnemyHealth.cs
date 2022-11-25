@@ -44,21 +44,21 @@ public class EnemyHealth : MonoBehaviour
 
     public void GetHit(int amount, GameObject sender)
     {
-        if (isDead)
-            return;
-        if (sender.layer == gameObject.layer)
-            return;
+        //if (isDead)
+        //    return;
+        //if (sender.layer == gameObject.layer)
+        //    return;
 
-        currentHealth -= amount;
+        currentHealth -= playerDamageAmount;
         StartCoroutine(EnemyHit());
 
         if (currentHealth > 0)
         {
-            OnHitWithReference?.Invoke(sender);
+            //OnHitWithReference?.Invoke(sender);
         }
         else
         {
-            OnDeathWithReference?.Invoke(sender);
+            //OnDeathWithReference?.Invoke(sender);
             isDead = true;
             Destroy(gameObject);
         }
