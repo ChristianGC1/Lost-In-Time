@@ -15,9 +15,6 @@ public enum _PlayerState
 }
 
 
-
-
-
 public class SamuraiMovement : MonoBehaviour
 {
 
@@ -43,9 +40,6 @@ public class SamuraiMovement : MonoBehaviour
     public bool attackOne;
     public bool attackTwo;
     public bool attackThree;
-
-
-
 
 
     private void Awake()
@@ -147,9 +141,19 @@ public class SamuraiMovement : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            //Heal player if potions held are more than 0
+            if (ItemCount.heal >= 1 && GetComponent<PlayerHealth>().currentHealth != 25)
+            {
+                Heal();
+            }
+
+        }
+
     }
 
-    private void FixedUpdate()
+        private void FixedUpdate()
     {
 
         _rigidbody2D.velocity = moveDir * MOVE_SPEED;
@@ -286,4 +290,25 @@ public class SamuraiMovement : MonoBehaviour
         _anim.SetBool("PlayerDeath", true);
     }
 
+    public void Heal()
+    {
+        GetComponent<PlayerHealth>().currentHealth += 5;
+        ItemCount.heal -= 1;
+        PlayerPrefs.SetInt("hMany", ItemCount.heal);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Heal"))
+        {
+            if (ItemCount.heal != 5)
+            {
+                ItemCount.heal += 1;
+
+                PlayerPrefs.SetInt("hMany", ItemCount.heal);
+
+                Destroy(other.gameObject);
+            }
+        }
+    }
 }

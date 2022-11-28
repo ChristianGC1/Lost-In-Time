@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public HealthBar healthBar;
+
     public int enemyDamageAmount;
 
     [SerializeField]
-    private int currentHealth, maxHealth;
+    public int currentHealth, maxHealth;
 
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
 
@@ -18,6 +20,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        healthBar.SetHealth(currentHealth);
+
         if (currentHealth <= 0)
         {
             isDead = true;
