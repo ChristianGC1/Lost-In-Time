@@ -20,7 +20,7 @@ public class DialogueUI : MonoBehaviour
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogueBox();
-        //ShowDialogue(startingDialogue);
+        ShowDialogue(startingDialogue);
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)

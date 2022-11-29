@@ -22,6 +22,7 @@ public class SamuraiMovement : MonoBehaviour
 
     public _PlayerState currentState;
 
+    public DashBar dashBar;
 
     public Rigidbody2D _rigidbody2D;
     private Vector3 moveDir;
@@ -30,6 +31,7 @@ public class SamuraiMovement : MonoBehaviour
     private bool isDashButtonDown;
     [SerializeField]
     private float dashPower = 20f;
+    public float dashTimer;
 
     private bool isAttackButtonDown;
 
@@ -54,6 +56,8 @@ public class SamuraiMovement : MonoBehaviour
     {
         currentState = _PlayerState.idle;
 
+        dashTimer = 2f;
+
         Cursor.visible = false;
 
     }
@@ -68,9 +72,19 @@ public class SamuraiMovement : MonoBehaviour
         }
         else if (attackTimer <= 0.0f)
         {
-            ResetTimer();
+            ResetAttack();
         }
 
+        dashBar.SetDash((int)dashTimer);
+
+        if (dashTimer < 2f)
+        {
+            dashTimer += Time.deltaTime;
+        }
+        else if (dashTimer > 2f)
+        {
+            ResetDash();
+        }
 
 
 
@@ -97,12 +111,12 @@ public class SamuraiMovement : MonoBehaviour
 
         moveDir = new Vector3(moveX, moveY).normalized;
 
-        if (Input.GetButtonDown("Fire2") || (Input.GetKeyDown(KeyCode.RightAlt))) 
+        if (Input.GetButtonDown("Fire2")) 
         {
             isDashButtonDown = true;
         }
 
-        if (Input.GetButtonDown("Fire1") || (Input.GetKeyDown(KeyCode.Space)))
+        if (Input.GetButtonDown("Fire1"))
         {
             isAttackButtonDown = true;
         }
@@ -153,13 +167,13 @@ public class SamuraiMovement : MonoBehaviour
 
     }
 
-        private void FixedUpdate()
+    private void FixedUpdate()
     {
 
         _rigidbody2D.velocity = moveDir * MOVE_SPEED;
 
 
-        if (isDashButtonDown)
+        if (isDashButtonDown && dashTimer >= 1f)
         {
             //float dashAmount = 1f;
             Vector3 dashPosition = transform.position + moveDir * dashPower;
@@ -178,6 +192,10 @@ public class SamuraiMovement : MonoBehaviour
             //_rigidbody2D.MovePosition(transform.position + moveDir * dashAmount);
             _rigidbody2D.AddForce(moveDir * dashPower * 100, ForceMode2D.Force);
 
+            if(dashTimer >= 1f)
+            {
+                dashTimer -= 1f;
+            }
             isDashButtonDown = false;
             this.GetComponent<BoxCollider2D>().enabled = true;
         }
@@ -255,7 +273,7 @@ public class SamuraiMovement : MonoBehaviour
 
     }
 
-    private void ResetTimer()
+    private void ResetAttack()
     {
         attackTimer = 0.0f;
         if (attackOne == true)
@@ -278,6 +296,12 @@ public class SamuraiMovement : MonoBehaviour
         _anim.SetBool("IsAttackingTwo", false);
         _anim.SetBool("IsAttackingThree", false);
 
+        currentState = _PlayerState.walk;
+    }
+
+    private void ResetDash()
+    {
+        dashTimer = 2f;
         currentState = _PlayerState.walk;
     }
 

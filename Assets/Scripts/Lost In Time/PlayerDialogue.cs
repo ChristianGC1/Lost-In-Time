@@ -12,5 +12,10 @@ public class PlayerDialogue : MonoBehaviour
     void Update()
     {
         if (dialogueUI.isOpen) return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Interactable?.Interact(this);
+        }
     }
 }

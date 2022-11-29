@@ -109,10 +109,10 @@ public class HeroControl : MonoBehaviour
             UpdateAnimationAndMove();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Interactable?.Interact(this);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Interactable?.Interact(this);
+        //}
     }
 
     private IEnumerator AttackCo()

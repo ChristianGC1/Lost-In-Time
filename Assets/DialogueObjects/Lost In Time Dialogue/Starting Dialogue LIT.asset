@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Starting Dialogue LIT
   m_EditorClassIdentifier: 
   dialogue:
-  - I continue to wake up...
-  - Waking up here. This place, the same one but slightly different.
-  - How many times has it been?
-  - At this point, I don't remember...
-  - I have to get out... Somehow.
+  - 'Kyle: I continue to wake up...'
+  - 'Kyle: Waking up here. This place, the same place but slightly different.'
+  - 'Kyle: How many times has it been?'
+  - 'Kyle: At this point, I don''t remember...'
+  - 'Kyle: I have to get out... Somehow.'
   responses: []

@@ -1,4 +1,4 @@
 public interface IInteractable
 {
-    void Interact(HeroControl player);
+    void Interact(PlayerDialogue player);
 }
