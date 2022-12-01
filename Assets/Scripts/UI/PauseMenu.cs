@@ -13,6 +13,10 @@ public class PauseMenu : MonoBehaviour
         {
             Pause();
         }
+        else if (Input.GetButtonDown("Cancel") && pauseMenuPanel.activeInHierarchy == true)
+        {
+            Resume();
+        }
     }
 
     public void Pause()

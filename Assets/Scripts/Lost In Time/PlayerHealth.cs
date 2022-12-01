@@ -51,6 +51,7 @@ public class PlayerHealth : MonoBehaviour
     {
         GetComponent<SamuraiMovement>().PlayDeathAnimation();
         GetComponent<SamuraiMovement>().enabled = false;
+        GetComponent<SamuraiMovement>().currentState = _PlayerState.dead;
         yield return new WaitForSeconds(1.5f);
     }
 

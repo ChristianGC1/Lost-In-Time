@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioMixer mixer;
 
-    [SerializeField] AudioSource swordSource;
+    //[SerializeField] AudioSource swordSource;
     [SerializeField] List<AudioClip> sfxClips = new List<AudioClip>();
 
     public const string MUSIC_KEY = "MusicVolume";
@@ -31,12 +31,12 @@ public class AudioManager : MonoBehaviour
         LoadVolume();
     }
 
-    public void SwordSFX()
-    {
-        AudioClip swordClip = sfxClips[0];
+    //public void SwordSFX()
+    //{
+    //    AudioClip swordClip = sfxClips[0];
 
-        swordSource.PlayOneShot(swordClip);
-    }
+    //    swordSource.PlayOneShot(swordClip);
+    //}
 
     void LoadVolume() // Volume saved in VolumeSettings.cs
     {

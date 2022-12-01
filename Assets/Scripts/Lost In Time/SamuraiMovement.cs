@@ -11,7 +11,8 @@ public enum _PlayerState
     attack,
     interact,
     stagger,
-    idle
+    idle,
+    dead
 }
 
 
@@ -20,12 +21,15 @@ public class SamuraiMovement : MonoBehaviour
 
     private const float MOVE_SPEED = 2f;
 
+    public ParticleSystem dust;
+    public GameObject trailLine;
+
     public _PlayerState currentState;
 
     public DashBar dashBar;
 
     public Rigidbody2D _rigidbody2D;
-    private Vector3 moveDir;
+    public Vector3 moveDir;
     public Animator _anim;
 
     private bool isDashButtonDown;
@@ -165,6 +169,11 @@ public class SamuraiMovement : MonoBehaviour
 
         }
 
+        if(currentState == _PlayerState.dead)
+        {
+            _rigidbody2D.velocity = Vector3.zero;
+        }
+
     }
 
     private void FixedUpdate()
@@ -187,8 +196,8 @@ public class SamuraiMovement : MonoBehaviour
                 dashPosition = raycastHit2D.point;
             }
 
-
-
+            TurnOnTrail();
+            //trailLine.SetActive(true);
             //_rigidbody2D.MovePosition(transform.position + moveDir * dashAmount);
             _rigidbody2D.AddForce(moveDir * dashPower * 100, ForceMode2D.Force);
 
@@ -305,6 +314,14 @@ public class SamuraiMovement : MonoBehaviour
         currentState = _PlayerState.walk;
     }
 
+    private IEnumerator TurnOnTrail()
+    {
+        yield return null;
+        trailLine.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        trailLine.SetActive(false);
+    }
+
     public void PlayDeathAnimation()
     {
         _anim.SetBool("PlayerDeath", true);
@@ -319,6 +336,11 @@ public class SamuraiMovement : MonoBehaviour
         GetComponent<PlayerHealth>().currentHealth += 5;
         ItemCount.heal -= 1;
         PlayerPrefs.SetInt("hMany", ItemCount.heal);
+    }
+
+    public void CreateDust()
+    {
+        dust.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
