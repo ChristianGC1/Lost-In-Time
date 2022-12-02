@@ -22,12 +22,14 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         pauseMenuPanel.SetActive(true);
+        Cursor.visible = true;
         Time.timeScale = 0f;
     }
 
     public void Resume()
     {
         pauseMenuPanel.SetActive(false);
+        Cursor.visible = false;
         Time.timeScale = 1f;
     }
 

@@ -19,7 +19,7 @@ public enum _PlayerState
 public class SamuraiMovement : MonoBehaviour
 {
 
-    private const float MOVE_SPEED = 2f;
+    public const float MOVE_SPEED = 2f;
 
     public ParticleSystem dust;
     public GameObject trailLine;
@@ -196,8 +196,7 @@ public class SamuraiMovement : MonoBehaviour
                 dashPosition = raycastHit2D.point;
             }
 
-            TurnOnTrail();
-            //trailLine.SetActive(true);
+            StartCoroutine(TurnOnTrail());
             //_rigidbody2D.MovePosition(transform.position + moveDir * dashAmount);
             _rigidbody2D.AddForce(moveDir * dashPower * 100, ForceMode2D.Force);
 
@@ -318,7 +317,7 @@ public class SamuraiMovement : MonoBehaviour
     {
         yield return null;
         trailLine.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         trailLine.SetActive(false);
     }
 
