@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using System.Runtime.CompilerServices;
-
+using UnityEngine.UI;
 
 public enum _PlayerState
 {
@@ -31,6 +31,8 @@ public class SamuraiMovement : MonoBehaviour
     public Rigidbody2D _rigidbody2D;
     public Vector3 moveDir;
     public Animator _anim;
+
+    public GameObject healFlash;
 
     private bool isDashButtonDown;
     [SerializeField]
@@ -165,6 +167,15 @@ public class SamuraiMovement : MonoBehaviour
             if (ItemCount.heal >= 1 && GetComponent<PlayerHealth>().currentHealth != 25)
             {
                 Heal();
+                if(healFlash != null)
+                {
+                    if(healFlash.GetComponent<Image>().color.a > 0)
+                    {
+                        var color = healFlash.GetComponent<Image>().color;
+                        color.a -= 0.01f;
+                        healFlash.GetComponent<Image>().color = color;
+                    }
+                }
             }
 
         }
@@ -335,6 +346,11 @@ public class SamuraiMovement : MonoBehaviour
         GetComponent<PlayerHealth>().currentHealth += 5;
         ItemCount.heal -= 1;
         PlayerPrefs.SetInt("hMany", ItemCount.heal);
+
+        var color = healFlash.GetComponent<Image>().color;
+        color.a = 0.8f;
+
+        healFlash.GetComponent<Image>().color = color;
     }
 
     public void CreateDust()

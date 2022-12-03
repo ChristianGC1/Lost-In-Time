@@ -6,16 +6,12 @@ public class Breakable : MonoBehaviour
 {
     private Animator anim;
 
+    public GameObject explosionEffect;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Break()
@@ -26,7 +22,8 @@ public class Breakable : MonoBehaviour
 
     IEnumerator BreakCo()
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.25f);
+        GameObject explosionEffectIns = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         this.gameObject.SetActive(false);
     }
 }
