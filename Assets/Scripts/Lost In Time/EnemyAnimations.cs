@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAnimations : MonoBehaviour
 {
     public Animator anim;
-    public Animation _animation;
+    //public Animation _animation;
 
     private void Awake()
     {
@@ -19,9 +19,9 @@ public class EnemyAnimations : MonoBehaviour
 
     public void PlayHitAnimation()
     {
-        _animation["EnemyHit"].wrapMode = WrapMode.Once;
-        _animation.Play("EnemyHit");
-        Debug.Log("Enemy Hit animation played");
+        //_animation["EnemyHit"].wrapMode = WrapMode.Once;
+        //_animation.Play("EnemyHit");
+        StartCoroutine(HitCo());
     }
 
     public void RotateToPointer(Vector2 lookDirection)
@@ -41,5 +41,12 @@ public class EnemyAnimations : MonoBehaviour
     public void PlayAnimation(Vector2 movementInput)
     {
         anim.SetBool("IsMoving", movementInput.magnitude > 0);
+    }
+
+    public IEnumerator HitCo()
+    {
+        anim.SetBool("EnemyHit", true);
+        yield return new WaitForSeconds(.5f);
+        anim.SetBool("EnemyHit", false);
     }
 }

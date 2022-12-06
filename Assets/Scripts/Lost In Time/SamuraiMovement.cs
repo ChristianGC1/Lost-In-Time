@@ -185,6 +185,11 @@ public class SamuraiMovement : MonoBehaviour
             _rigidbody2D.velocity = Vector3.zero;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            ItemCount.enemiesEliminated += 1;
+        }
+
     }
 
     private void FixedUpdate()

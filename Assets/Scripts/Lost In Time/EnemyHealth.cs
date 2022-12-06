@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public int playerDamageAmount;
     public BoxCollider2D c2d;
+
+    public ItemCount itemCount;
 
     [SerializeField]
     private int currentHealth, maxHealth;
@@ -21,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
     {
         c2d = GetComponent<BoxCollider2D>();
         currentHealth = maxHealth;
+        itemCount = GetComponent<ItemCount>();
     }
 
     private void Update()
@@ -32,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (isDead)
         {
-            StartCoroutine(EnemyDeath());
+            GetComponent<EnemyAnimations>().PlayDeathAnimation();
         }
     }
     public void InitializeHealth(int healthValue)
@@ -50,7 +54,8 @@ public class EnemyHealth : MonoBehaviour
         //    return;
 
         currentHealth -= playerDamageAmount;
-        StartCoroutine(EnemyHit());
+        GetComponent<EnemyAnimations>().PlayHitAnimation();
+        //StartCoroutine(EnemyHit());
 
         if (currentHealth > 0)
         {
@@ -58,23 +63,14 @@ public class EnemyHealth : MonoBehaviour
         }
         else
         {
-            //OnDeathWithReference?.Invoke(sender);
+            OnDeathWithReference?.Invoke(sender);
             isDead = true;
-            Destroy(gameObject);
         }
-    }
-
-
-    public IEnumerator EnemyDeath()
-    {
-        //GetComponent<EnemyAnimations>().PlayDeathAnimation();
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
     }
 
     public IEnumerator EnemyHit()
     {
-        //GetComponent<EnemyAnimations>().PlayHitAnimation();
+        GetComponent<EnemyAnimations>().PlayHitAnimation();
         this.c2d.enabled = false;
         //GetComponent<KnockbackFeedback>().PlayFeedback(sender);
         yield return new WaitForSeconds(0.1f);
