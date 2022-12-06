@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player Hit!");
-            other.GetComponent<PlayerHealth>().GetHit();
+            other.GetComponent<PlayerHealth>().GetHit(10, null);
         }
     }
 }

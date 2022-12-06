@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d701ed8930cd12f4099938707f06c287, type: 3}
   m_Name: Stay In R15
   m_EditorClassIdentifier: Assembly-CSharp::StayInRadiusBehavior
   center: {x: 0, y: 0}

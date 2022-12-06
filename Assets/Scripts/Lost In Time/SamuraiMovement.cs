@@ -56,7 +56,6 @@ public class SamuraiMovement : MonoBehaviour
     }
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -179,10 +178,15 @@ public class SamuraiMovement : MonoBehaviour
             }
 
         }
+        if(GetComponent<PlayerHealth>().currentHealth <= 0)
+        {
+            currentState = _PlayerState.dead;
+        }
 
         if(currentState == _PlayerState.dead)
         {
             _rigidbody2D.velocity = Vector3.zero;
+            this.enabled = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -213,6 +217,7 @@ public class SamuraiMovement : MonoBehaviour
             }
 
             StartCoroutine(TurnOnTrail());
+            StartCoroutine(DashCo());
             //_rigidbody2D.MovePosition(transform.position + moveDir * dashAmount);
             _rigidbody2D.AddForce(moveDir * dashPower * 100, ForceMode2D.Force);
 
@@ -297,6 +302,13 @@ public class SamuraiMovement : MonoBehaviour
 
     }
 
+    public IEnumerator PlayerHitCo()
+    {
+        _anim.SetBool("PlayerHit", true);
+        yield return new WaitForSeconds(.5f);
+        _anim.SetBool("PlayerHit", false);
+    }
+
     private void ResetAttack()
     {
         attackTimer = 0.0f;
@@ -323,6 +335,14 @@ public class SamuraiMovement : MonoBehaviour
         currentState = _PlayerState.walk;
     }
 
+    private IEnumerator DashCo()
+    {
+        _anim.SetBool("IsDashing", true);
+        yield return null;
+        yield return new WaitForSeconds(0.3f);
+        _anim.SetBool("IsDashing", false);
+    }
+
     private void ResetDash()
     {
         dashTimer = 2f;
@@ -341,9 +361,9 @@ public class SamuraiMovement : MonoBehaviour
     {
         _anim.SetBool("PlayerDeath", true);
     }
-    public void PlayStaggerAnimation()
+    public void PlayHitAnimation()
     {
-        _anim.SetBool("PlayerDeath", true);
+        StartCoroutine(PlayerHitCo());
     }
 
     public void Heal()

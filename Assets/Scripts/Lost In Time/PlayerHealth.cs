@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (isDead)
         {
-            StartCoroutine(PlayerDeath());
+            GetComponent<SamuraiMovement>().PlayDeathAnimation();
         }
     }
     public void InitializeHealth(int healthValue)
@@ -39,12 +39,29 @@ public class PlayerHealth : MonoBehaviour
         isDead = false;
     }
 
-    public void GetHit()
+    public void GetHit(int amount, GameObject sender)
     {
         if(GetComponent<SamuraiMovement>().currentState != _PlayerState.stagger)
         {
             StartCoroutine(PlayerStagger());
             currentHealth -= enemyDamageAmount;
+        }
+        //if (isDead)
+        //    return;
+        //if (sender.layer == gameObject.layer)
+        //    return;
+
+        //currentHealth -= enemyDamageAmount;
+        //GetComponent<EnemyAnimations>().PlayHitAnimation();
+
+        if (currentHealth > 0)
+        {
+            //OnHitWithReference?.Invoke(sender);
+        }
+        else
+        {
+            OnDeathWithReference?.Invoke(sender);
+            isDead = true;
         }
     }
     public IEnumerator PlayerDeath()
@@ -57,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator PlayerStagger()
     {
-        GetComponent<SamuraiMovement>().PlayStaggerAnimation();
+        GetComponent<SamuraiMovement>().PlayHitAnimation();
         GetComponent<SamuraiMovement>().currentState = _PlayerState.stagger;
         yield return new WaitForSeconds(0.5f);
         GetComponent<SamuraiMovement>().currentState = _PlayerState.idle;
