@@ -70,6 +70,11 @@ public class SamuraiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PlayerInputChecker.isAcceptingPlayerInput == false)
+        {
+            // Not accepting player input
+            return;
+        }
 
         if (attackTimer > 0.0f)
         {
@@ -166,33 +171,29 @@ public class SamuraiMovement : MonoBehaviour
             if (ItemCount.heal >= 1 && GetComponent<PlayerHealth>().currentHealth != 25)
             {
                 Heal();
-                if(healFlash != null)
-                {
-                    if(healFlash.GetComponent<Image>().color.a > 0)
-                    {
-                        var color = healFlash.GetComponent<Image>().color;
-                        color.a -= 0.01f;
-                        healFlash.GetComponent<Image>().color = color;
-                    }
-                }
+                StartCoroutine(HealCo());
+                //if(healFlash != null)
+                //{
+                //    if(healFlash.GetComponent<Image>().color.a > 0)
+                //    {
+                //        var color = healFlash.GetComponent<Image>().color;
+                //        color.a -= 0.01f;
+                //        healFlash.GetComponent<Image>().color = color;
+                //    }
+                //}
             }
 
-        }
-        if(GetComponent<PlayerHealth>().currentHealth <= 0)
-        {
-            currentState = _PlayerState.dead;
-        }
-
-        if(currentState == _PlayerState.dead)
-        {
-            _rigidbody2D.velocity = Vector3.zero;
-            this.enabled = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             ItemCount.enemiesEliminated += 1;
         }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            ItemCount.heal += 1;
+        }
+        PlayerDead();
 
     }
 
@@ -308,7 +309,28 @@ public class SamuraiMovement : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         _anim.SetBool("PlayerHit", false);
     }
+    private IEnumerator DashCo()
+    {
+        _anim.SetBool("IsDashing", true);
+        yield return null;
+        yield return new WaitForSeconds(0.3f);
+        _anim.SetBool("IsDashing", false);
+    }
 
+    private IEnumerator HealCo()
+    {
+        _anim.SetBool("IsHealing", true);
+        yield return null;
+        yield return new WaitForSeconds(0.5f);
+        _anim.SetBool("IsHealing", false);
+    }
+    private IEnumerator TurnOnTrail()
+    {
+        yield return null;
+        trailLine.SetActive(true);
+        yield return new WaitForSeconds(0.25f);
+        trailLine.SetActive(false);
+    }
     private void ResetAttack()
     {
         attackTimer = 0.0f;
@@ -335,26 +357,10 @@ public class SamuraiMovement : MonoBehaviour
         currentState = _PlayerState.walk;
     }
 
-    private IEnumerator DashCo()
-    {
-        _anim.SetBool("IsDashing", true);
-        yield return null;
-        yield return new WaitForSeconds(0.3f);
-        _anim.SetBool("IsDashing", false);
-    }
-
     private void ResetDash()
     {
         dashTimer = 2f;
         currentState = _PlayerState.walk;
-    }
-
-    private IEnumerator TurnOnTrail()
-    {
-        yield return null;
-        trailLine.SetActive(true);
-        yield return new WaitForSeconds(0.25f);
-        trailLine.SetActive(false);
     }
 
     public void PlayDeathAnimation()
@@ -365,7 +371,6 @@ public class SamuraiMovement : MonoBehaviour
     {
         StartCoroutine(PlayerHitCo());
     }
-
     public void Heal()
     {
         GetComponent<PlayerHealth>().currentHealth += 5;
@@ -381,6 +386,20 @@ public class SamuraiMovement : MonoBehaviour
     public void CreateDust()
     {
         dust.Play();
+    }
+
+    public void PlayerDead()
+    {
+        if (GetComponent<PlayerHealth>().currentHealth <= 0)
+        {
+            currentState = _PlayerState.dead;
+        }
+
+        if (currentState == _PlayerState.dead)
+        {
+            GetComponent<SamuraiMovement>().enabled = false;
+            _rigidbody2D.velocity = Vector3.zero;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

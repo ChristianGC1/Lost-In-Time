@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Introduction Cutscene.unity
     guid: 79869300862f01c418b6637361a2ab8e
   - enabled: 1
+    path: Assets/Scenes/Sleeping Scene.unity
+    guid: 5379839a650a8834aa6412b60533e535
+  - enabled: 1
     path: Assets/Scenes/Main Game.unity
     guid: 97e114c1033d46546a30e9fc57f38c1d
+  - enabled: 1
+    path: Assets/Scenes/Boss Scene.unity
+    guid: b6cf47108c290ec41835a804bf60c293
   m_configObjects: {}

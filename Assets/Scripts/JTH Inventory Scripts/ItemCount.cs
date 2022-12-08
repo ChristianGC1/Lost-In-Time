@@ -34,8 +34,8 @@ public class ItemCount : MonoBehaviour
     {
         if(enemiesEliminated >= 6)
         {
-            sc.ChangeSprite();
-            GetComponent<SpriteChanger>().ChangeSprite();
+            sc.ChangeSpriteOne();
+            GetComponent<SpriteChanger>().ChangeSpriteOne();
         }
     }
 

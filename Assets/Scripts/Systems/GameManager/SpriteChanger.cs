@@ -11,9 +11,16 @@ public class SpriteChanger : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void ChangeSprite()
+    public void ChangeSpriteOne()
     {
         anim.SetBool("GateOpen", true);
-        this.enabled = false;
+        //this.enabled = false;
+    }
+
+    public void ChangeSpriteTwo()
+    {
+        ItemCount.enemiesEliminated = 0;
+        anim.SetBool("GateClose", true);
+        anim.SetBool("GateOpen", false);
     }
 }

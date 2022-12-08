@@ -21,6 +21,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        PlayerInputChecker.isAcceptingPlayerInput = false;
         pauseMenuPanel.SetActive(true);
         Cursor.visible = true;
         Time.timeScale = 0f;
@@ -28,6 +29,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        PlayerInputChecker.isAcceptingPlayerInput = true;
         pauseMenuPanel.SetActive(false);
         Cursor.visible = false;
         Time.timeScale = 1f;

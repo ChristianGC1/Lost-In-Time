@@ -20,6 +20,7 @@ public class DialogueUI : MonoBehaviour
         typeWriterEffect = GetComponent<TypeWriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogueBox();
+        if (startingDialogue == null) return;
         ShowDialogue(startingDialogue);
     }
 
@@ -83,5 +84,6 @@ public class DialogueUI : MonoBehaviour
         isOpen = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+        PlayerInputChecker.isAcceptingPlayerInput = true;
     }
 }

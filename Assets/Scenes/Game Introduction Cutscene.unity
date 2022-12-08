@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe9efee023531c45abd462f9e97bb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTime: 34
+  changeTime: 19
   onSceneChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1024,7 +1024,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Main Game
+          m_StringArgument: Sleeping Scene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!4 &1734466673

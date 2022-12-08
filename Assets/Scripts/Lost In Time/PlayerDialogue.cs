@@ -11,20 +11,28 @@ public class PlayerDialogue : MonoBehaviour
 
     void Update()
     {
-        if (dialogueUI.isOpen) return;
-
-        if (dialogueUI.isOpen)
-        {
-            GetComponent<SamuraiMovement>().enabled = false;
-        }
-        if (!dialogueUI.isOpen)
-        {
-            GetComponent<SamuraiMovement>().enabled = true;
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Interactable?.Interact(this);
+        }
+
+        if (PlayerInputChecker.isAcceptingPlayerInput == false)
+        {
+            // Not accepting player input
+            return;
+        }
+
+        //if (PlayerInputChecker.isAcceptingPlayerInput == false) return;
+        if (dialogueUI.isOpen)
+        {
+            PlayerInputChecker.isAcceptingPlayerInput = false;
+            //GetComponent<SamuraiMovement>().enabled = false;
+        }
+        if (!dialogueUI.isOpen)
+        {
+            PlayerInputChecker.isAcceptingPlayerInput = true;
+            //GetComponent<SamuraiMovement>().enabled = true;
         }
     }
 }
