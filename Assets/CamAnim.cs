@@ -14,4 +14,14 @@ public class CamAnim : MonoBehaviour
     {
         anim.SetBool("IsZooming", true);
     }
+
+    public void BossFadeIn()
+    {
+        anim.SetBool("FadeIn", true);
+    }
+
+    public void BossAnimationChange()
+    {
+        anim.SetBool("IsLooping", true);
+    }
 }
