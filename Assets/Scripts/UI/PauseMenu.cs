@@ -9,11 +9,11 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Menu"))
         {
             Pause();
         }
-        else if (Input.GetButtonDown("Cancel") && pauseMenuPanel.activeInHierarchy == true)
+        else if (Input.GetButtonDown("Menu") && pauseMenuPanel.activeInHierarchy == true)
         {
             Resume();
         }
