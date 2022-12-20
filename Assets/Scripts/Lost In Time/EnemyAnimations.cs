@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAnimations : MonoBehaviour
 {
     public Animator anim;
+    public GameObject bloodEffect;
     //public Animation _animation;
 
     private void Awake()
@@ -46,6 +47,7 @@ public class EnemyAnimations : MonoBehaviour
     public IEnumerator HitCo()
     {
         anim.SetBool("EnemyHit", true);
+        GameObject bloodEffectIns = Instantiate(bloodEffect, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(.5f);
         anim.SetBool("EnemyHit", false);
     }
